@@ -1,0 +1,127 @@
+{
+	"info": {
+		"_postman_id": "e1f63f04-f901-499b-9838-02711eb8941b",
+		"name": "Bus-Booking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "user@example.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get available seats",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYyNDc3ODk3MiwiZXhwIjoxNjI0NzgyNTcyLCJuYmYiOjE2MjQ3Nzg5NzIsImp0aSI6ImYzOE9RNDlISm9KMTVJaUEiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.HV7Jnel7YNwPctNlXF7R2Px48S_0Hyt53_qVkbdCTnY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pickup_station_id\" : 2,\r\n    \"arrival_station_id\" : 5\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/booking/1/available/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"booking",
+						"1",
+						"available",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "book a seat",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTYyNDc3ODk3MiwiZXhwIjoxNjI0NzgyNTcyLCJuYmYiOjE2MjQ3Nzg5NzIsImp0aSI6ImYzOE9RNDlISm9KMTVJaUEiLCJzdWIiOjIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.HV7Jnel7YNwPctNlXF7R2Px48S_0Hyt53_qVkbdCTnY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"pickup_station_id\" : 2,\r\n    \"arrival_station_id\" : 5,\r\n    \"seat_number\": 2\r\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/booking/1/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"booking",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
